@@ -43,7 +43,7 @@ con.connect(function(err) {
     if (err) throw err;
     console.log("Table creation `items` was successful!");
 
-  });
+  // });
 
 // ACTIVITY DUMMY DATA
   sql = 
@@ -128,21 +128,20 @@ con.query(sql, function (err, result) {
 });
 
 // HELPER_ACTIVITY SIGN UP DUMMY DATA
-sql = 
-"INSERT INTO helptheaged.helper_activity (id, helper_sign_up_id, activity_id) VALUES ('1, 1, 1')";
-con.query(sql, function (err, result) {
-  if (err) throw err;
-  console.log("Table creation `items` was successful!");
-});
+// sql = 
+// "INSERT INTO helptheaged.helper_activity (id, helper_sign_up_id, activity_id) VALUES ('1, 1, 1')";
+// con.query(sql, function (err, result) {
+//   if (err) throw err;
+//   console.log("Table creation `items` was successful!");
+// });
 
-sql = 
-"INSERT INTO helptheaged.helper_activity (id, helper_sign_up_id, activity_id) VALUES ('2,2,2')";
-con.query(sql, function (err, result) {
-  if (err) throw err;
-  console.log("Table creation `items` was successful!");
-});
+// sql = 
+// "INSERT INTO helptheaged.helper_activity (id, helper_sign_up_id, activity_id) VALUES ('2,2,2')";
+// con.query(sql, function (err, result) {
+//   if (err) throw err;
+//   console.log("Table creation `items` was successful!");
+// });
 
   con.end();
-});
 
-
+  });})

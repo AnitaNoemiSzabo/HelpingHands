@@ -9,14 +9,30 @@ constructor(props) {
     this.state = {
         lat:51.5285582, 
         lon:-0.24168, 
-        zoom:8.5
+        zoom:8.5,
+        items: [],
+        isLoaded: false
     }
 }
 
+//GETTING DATA FROM API
+componentDidMount(){
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(res=> res.json())
+        .then(json => {
+                    this.setState({
+                        isLoaded: true,
+                        items: json,
+                    }) 
+        });
+}
 
     render() {
-        return (
+        let { isloaded, items }= this.state;
+
+           return (
             <div>
+    
                 <div className ="App">
                 <div className="App__Aside">
                     <div className = "NiceMap">
@@ -29,6 +45,16 @@ constructor(props) {
                     <img width="50" src="https://cdn3.vectorstock.com/i/1000x1000/81/22/helping-hands-concept-icon-vector-10468122.jpg"/>
                 </Popup>
                 </Marker>
+
+
+                <ul>
+                    {items.map(item => (
+                        <li key={item.id}>
+                            Name: {items.name} | Email: {item.email}       
+                        </li>
+                    ))};
+                </ul>
+
                 </Map>
                 </div>
                 </div>
